@@ -2,7 +2,7 @@ name: Checkmarx AST Scan
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   build:
@@ -10,3 +10,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Checkmarx AST CLI Action
+        uses: checkmarx/ast-github-action@main
+        with:
+          base_uri: https://eu.ast.checkmarx.net/
+          cx_tenant: cxgsasa
+          cx_client_id: ${{ secrets.CX_CLIENT_ID }}
+          cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+          additional_params: --report-format sarif --output-path .
+          project_name: probable-octo-winner
+          
