@@ -7,6 +7,7 @@ app.get("/0", (req, res) => {
 });
 
 app.get("/1", (req, res) => {
+  console.log("Hello, world!");
   eval(req.body.command1);
   res.send("Hello world!");
 }
