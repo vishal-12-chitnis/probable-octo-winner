@@ -1,5 +1,7 @@
 name: Checkmarx AST Scan
 on:
+  pull_request:
+    types: [opened]
   push:
     branches:
       - main
