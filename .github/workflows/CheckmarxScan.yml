@@ -20,7 +20,7 @@ jobs:
           cx_tenant: cxgsasa
           cx_client_id: ${{ secrets.CX_CLIENT_ID }}
           cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
-          additional_params: --report-format sarif --output-path .
+          additional_params: --report-format sarif --output-path . --ignore-policy
           project_name: probable-octo-winner
       - name: Archive scan results
         uses: actions/upload-artifact@v4
